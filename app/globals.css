@@ -1,26 +1,118 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Colors */
+  --color-primary: #fcdd0c;
+  --color-primary-stroke: #b8a000;
+  --color-primary-dark: #412402;
+  --color-bg-page: #fff9e5;
+  --color-bg-card: #f0e8c8;
+  --color-bg-input: #ffffff;
+  --color-bg-input-alt: #f3f3f3;
+
+  --color-text-heading: #111111;
+  --color-text-body: #555555;
+  --color-text-muted: #888888;
+  --color-text-placeholder: #aaaaaa;
+  --color-text-light: #cccccc;
+
+  --color-border-light: #dddddd;
+  --color-border-card: #e8dfa8;
+
+  --color-rating-star: #fcdd0c;
+  --color-cta-text: #fcdd0c;
+  --color-overlay-dark: rgba(0, 0, 0, 0.3);
+  --color-shadow-card: rgba(0, 0, 0, 0.1);
+
+  --color-offer-bg: #fcdd0c;
+  --color-offer-text: #412402;
+  
+  /* Font sizes (with line-height) */
+  --text-hero: 96px;
+  --text-hero--line-height: 110px;
+
+  --text-hero-tablet: 64px;
+  --text-hero-tablet--line-height: 76px;
+
+  --text-hero-mobile: 48px;
+  --text-hero-mobile--line-height: 58px;
+
+  --text-h2: 48px;
+  --text-h2--line-height: 58px;
+
+  /* New */
+  --text-h3: 36px;
+  --text-h3--line-height: 44px;
+
+  --text-h4: 32px;
+  --text-h4--line-height: 40px;
+
+  /* Alias of card title */
+  --text-h5: var(--text-card-title);
+  --text-h5--line-height: var(--text-card-title--line-height);
+
+  --text-h6: 20px;
+  --text-h6--line-height: 26px;
+
+  /* Existing */
+  --text-card-title: 24px;
+  --text-card-title--line-height: 30px;
+
+  --text-body: 20px;
+  --text-body--line-height: 32px;
+
+  --text-body-sm: 16px;
+  --text-body-sm--line-height: 26px;
+
+  /* Mini text */
+  --text-mini-xs: 10px;
+  --text-mini-sm: 12px;
+  --text-mini-md: 14px;
+  --text-mini-lg: 18px;
+
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 24px;
+  --spacing-lg: 48px;
+  --spacing-xl: 80px;
+  --spacing-2xl: 120px;
+
+  /* Radius */
+  --radius-pill: 100px;
+  --radius-xl2: 32px;
+  --radius-lg2: 16px;
+  --radius-md2: 14px;
+  --radius-sm2: 8px;
+
+  /* Shadows */
+  --shadow-card: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  --shadow-modal: 0px 8px 32px rgba(0, 0, 0, 0.15);
+
+  /* Max width */
+  --container-content: 1680px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.font-display {
+  font-family: var(--font-display);
 }
 
+.font-body {
+  font-family: var(--font-body);
+}
+
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg-page);
+  color: var(--color-text-body);
+  font-family: var(--font-body);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
