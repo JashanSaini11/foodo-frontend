@@ -7,7 +7,6 @@ import { NextResponse } from "next/server";
 
 // ─── PROTECTED ROUTES ─────────────────────────────────────────
 const protectedRoutes = [
-    "/home",
     "/cart",
     "/checkout",
     "/orders",
@@ -34,7 +33,7 @@ export function middleware(request) {
 
     // ─── Redirect authenticated users away from auth pages ────
     if (isAuthenticated && authRoutes.some((route) => pathname.startsWith(route))) {
-        return NextResponse.redirect(new URL("/home", request.url));
+        return NextResponse.redirect(new URL("/", request.url));
     }
 
     // ─── Redirect unauthenticated users to login ──────────────
@@ -50,7 +49,6 @@ export function middleware(request) {
 // ─── WHICH ROUTES THIS MIDDLEWARE RUNS ON ─────────────────────
 export const config = {
     matcher: [
-        "/home/:path*",
         "/cart/:path*",
         "/checkout/:path*",
         "/orders/:path*",

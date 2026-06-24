@@ -18,6 +18,7 @@ import AuthShell from "@/components/auth/AuthShell";
 import AuthInput from "@/components/auth/AuthInput";
 import { PrimaryButton } from "@/components/auth/AuthControls";
 import { forgotPasswordAPI } from "@/lib/auth.api";
+import { toast } from "sonner";
 
 export default function ForgotPasswordRequestPage() {
     const [email, setEmail] = useState("");
@@ -31,10 +32,12 @@ export default function ForgotPasswordRequestPage() {
 
         if (!email.trim()) {
             setError("Enter your email");
+            toast.error("Enter your email");
             return;
         }
         if (!/^\S+@\S+\.\S+$/.test(email)) {
             setError("Enter a valid email");
+            toast.error("Enter a valid email");
             return;
         }
 
@@ -42,12 +45,13 @@ export default function ForgotPasswordRequestPage() {
         setFormError("");
         try {
             await forgotPasswordAPI({ email: email.trim() });
+            toast.success("Reset link sent! Check your inbox.", { id });
             setSent(true);
         } catch (err) {
             const message =
                 err?.response?.data?.message ||
                 "Couldn't send the reset link. Please try again.";
-            setFormError(message);
+            toast.error(message);
         } finally {
             setLoading(false);
         }

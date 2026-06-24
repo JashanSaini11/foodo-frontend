@@ -7,6 +7,7 @@ import AuthShell from "@/components/auth/AuthShell";
 import AuthInput from "@/components/auth/AuthInput";
 import { PrimaryButton } from "@/components/auth/AuthControls";
 import { resetPasswordAPI } from "@/lib/auth.api";
+import { toast } from "sonner";
 
 // ─── Separate component to safely use useSearchParams ─────────
 function ResetForm() {
@@ -64,6 +65,8 @@ function ResetForm() {
         const errs = validate();
         if (Object.keys(errs).length) {
             setErrors(errs);
+            const first = Object.values(errs)[0];
+            if (first) toast.error(first);
             return;
         }
 
@@ -72,10 +75,11 @@ function ResetForm() {
         try {
             await resetPasswordAPI({ token, newPassword: form.newPassword });
             setSuccess(true);
+            toast.success("Password changed successfully! Redirecting to login...");
             // Redirect to login after 2 seconds
             setTimeout(() => router.replace("/login"), 2000);
         } catch (err) {
-            setFormError(
+            toast.error(
                 err?.response?.data?.message ||
                 "Link has expired or is invalid. Please request a new one."
             );

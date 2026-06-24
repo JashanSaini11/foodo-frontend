@@ -12,7 +12,7 @@ export default function AuthShell({
 }) {
   return (
     <div
-      className="min-h-screen flex flex-col items-center px-6 py-10 relative bg-primary"
+      className="min-h-screen flex flex-col items-center px-6 relative bg-primary"
       style={{
         backgroundImage: "url('/bg.png')",
         backgroundSize: "cover",

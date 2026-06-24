@@ -12,6 +12,7 @@ import AuthShell from "@/components/auth/AuthShell";
 import AuthInput from "@/components/auth/AuthInput";
 import { PrimaryButton, OrDivider, GoogleButton } from "@/components/auth/AuthControls";
 import { signupAPI, googleLoginURL } from "@/lib/auth.api";
+import { toast } from "sonner";
 
 export default function SignupPage() {
     const router = useRouter();
@@ -51,6 +52,8 @@ export default function SignupPage() {
         const errs = validate();
         if (Object.keys(errs).length) {
             setErrors(errs);
+            const first = Object.values(errs)[0];
+            if (first) toast.error(first);
             return;
         }
 
@@ -63,13 +66,14 @@ export default function SignupPage() {
                 password: form.password,
                 phone: form.phone.trim(),
             });
+            toast.success("Account created! Check your email for the OTP.", { id });
             // Backend sends an OTP to verify the email — send the user there next
             router.push(`/verify-email?email=${encodeURIComponent(form.email.trim())}`);
         } catch (err) {
             const message =
                 err?.response?.data?.message ||
                 "Couldn't create your account. Please try again.";
-            setFormError(message);
+            toast.error(message);
         } finally {
             setLoading(false);
         }
@@ -148,7 +152,3 @@ export default function SignupPage() {
         </AuthShell>
     );
 }
-
-// TODO: /verify-email page (OTP input, 6 boxes) consumes
-// verifyOTPAPI / resendOTPAPI from lib/auth.api.js — not in this
-// batch of Figma screens, build when that screen is ready.

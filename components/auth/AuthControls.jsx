@@ -2,14 +2,14 @@
 // Shared primary (dark) button, Google OAuth button, and
 // "or" divider — reused across login / signup pages
 
-export function PrimaryButton({ children, loading, ...rest }) {
+export function PrimaryButton({ children, loading, className = "", ...rest }) {
   return (
     <button
-      className="w-full h-14 rounded-xl bg-text-heading text-primary
+      className={`h-14 rounded-xl bg-text-heading text-primary
                  font-body font-semibold text-lg
                  hover:bg-black transition-colors
                  disabled:opacity-60 disabled:cursor-not-allowed
-                 flex items-center justify-center gap-2"
+                 flex items-center justify-center gap-2 ${className}`}
       disabled={loading}
       {...rest}
     >

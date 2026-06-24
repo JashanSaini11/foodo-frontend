@@ -60,7 +60,7 @@ const useAuthStore = create(
                     case "DELIVERY_PARTNER":
                         return "/delivery/dashboard";
                     default:
-                        return "/home";
+                        return "/";
                 }
             },
         }),

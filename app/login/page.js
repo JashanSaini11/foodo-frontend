@@ -11,6 +11,7 @@ import AuthShell from "@/components/auth/AuthShell";
 import AuthInput from "@/components/auth/AuthInput";
 import { PrimaryButton, OrDivider, GoogleButton } from "@/components/auth/AuthControls";
 import { loginAPI, googleLoginURL } from "@/lib/auth.api";
+import { toast } from "sonner";
 import useAuthStore from "@/store/authStore";
 
 export default function LoginPage() {
@@ -42,6 +43,9 @@ export default function LoginPage() {
         const errs = validate();
         if (Object.keys(errs).length) {
             setErrors(errs);
+            // show first validation error as toast
+            const first = Object.values(errs)[0];
+            if (first) toast.error(first);
             return;
         }
 
@@ -50,12 +54,13 @@ export default function LoginPage() {
         try {
             await loginAPI({ email: form.email, password: form.password });
             await fetchUser();
+            toast.success("Welcome back! 👋", { id });
             router.replace(getRedirectPath());
         } catch (err) {
             const message =
                 err?.response?.data?.message ||
                 "Couldn't sign you in. Check your email and password and try again.";
-            setFormError(message);
+            toast.error(message);
         } finally {
             setLoading(false);
         }

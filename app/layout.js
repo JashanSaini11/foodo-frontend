@@ -1,5 +1,6 @@
 import { Baloo_Bhai_2, Manrope } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 const balooBhai = Baloo_Bhai_2({
   subsets: ["latin"],
@@ -29,6 +30,15 @@ export default function RootLayout({ children }) {
         className={`${balooBhai.variable} ${manrope.variable}  font-body bg-bg-page`}
       >
         {children}
+        <Toaster
+          richColors
+          position="top-right"
+          toastOptions={{
+            style: {
+              fontFamily: "var(--font-body)",
+            },
+          }}
+        />
       </body>
     </html>
   );
