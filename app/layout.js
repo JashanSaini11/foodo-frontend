@@ -4,14 +4,14 @@ import { Toaster } from "@/components/ui/sonner";
 
 const balooBhai = Baloo_Bhai_2({
   subsets: ["latin"],
-  weight: ["600"],
+  weight: ["600", "800"],
   variable: "--font-display",
   display: "swap",
 });
 
 const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-body",
   display: "swap",
 });
