@@ -1,11 +1,11 @@
-import Navbar from "@/components/user/NavBar";
-import Footer from "@/components/user/Footer";
+import Navbar from "@/components/home/NavBar";
+import Footer from "@/components/home/Footer";
 
 export default function UserLayout({ children }) {
     return (
         <>
             <Navbar />
-            <main className="min-h-screen pt-[81px]">
+            <main className="min-h-screen">
                 {children}
             </main>
             <Footer />
