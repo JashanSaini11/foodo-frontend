@@ -51,4 +51,57 @@ function FoodoLogo({ fill = "#f5f5f5", width = 290, height = 183 }) {
     );
 }
 
-export { PinIcon, ChevronDown, FoodoLogo };
+function Star({ size = 16, fill = "#FCDD0C" }) {
+    return (
+        <svg
+            width={size}
+            height={size}
+            viewBox="0 0 24 24"
+            fill={fill}
+            stroke={fill}
+            strokeWidth="1"
+        >
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+        </svg>
+    )
+}
+
+function ClockIcon({ size = 16, fill = "#555" }) {
+    return (
+        <svg
+            width={size}
+            height={size}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke={fill}
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        >
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+        </svg>
+    )
+}
+
+function LocationIcon({ size = 16, fill = "#555", stroke = "#412402" }) {
+    return (
+        <svg
+            width={size}
+            height={size}
+            viewBox="0 0 24 24"
+            fill={fill}
+            stroke={stroke}
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        >
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+            <circle cx="12" cy="10" r="3" />
+        </svg>
+    )
+}
+
+
+
+export { PinIcon, ChevronDown, FoodoLogo, Star, ClockIcon, LocationIcon };
