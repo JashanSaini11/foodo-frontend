@@ -21,7 +21,7 @@ export default function HeroSection() {
         <div className="flex flex-col gap-5 md:gap-6 items-start flex-1 max-w-full xl:max-w-160 w-full">
           {/* Badge pill */}
           <div className="flex items-center gap-3 bg-primary px-5 py-2 rounded-full">
-            <LocationIcon size={18} stroke="#412402" />
+            <LocationIcon size={18} stroke="#412402" fill="none" />
             <span className="font-body font-medium text-mini-md md:text-[16px] text-primary-dark whitespace-nowrap">
               Free delivery today in your city
             </span>
@@ -53,19 +53,19 @@ export default function HeroSection() {
 
           {/* Search + CTA */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full xl:w-auto">
-            <div className="flex items-center gap-3 bg-white border-[1.5px] border-border-light rounded-md2 px-5 h-14 md:h-16 flex-1 xl:w-102 shadow-card">
+            <div className="flex items-center gap-3 bg-white border-[1.5px] border-border-light rounded-md md:rounded-md2 px-5 h-16 flex-1 xl:w-102 shadow-card">
               <LocationIcon size={20} stroke="#FCDD0C" fill="none" />
               <input
                 type="text"
                 placeholder="Enter delivery address"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
-                className="flex-1 bg-transparent font-body font-semibold text-[15px] md:text-mini-lg text-text-heading placeholder:text-text-placeholder outline-none"
+                className="flex-1 bg-transparent font-body font-semibold text-[15px] md:text-mini-lg text-text-heading placeholder:text-text-placeholder outline-none py-2"
               />
             </div>
             <button
               onClick={handleFindFood}
-              className="h-14 md:h-16 px-8 xl:w-45 bg-text-heading rounded-md2 font-body font-semibold text-[15px] md:text-mini-lg text-primary hover:bg-black transition-colors shrink-0 cursor-pointer"
+              className="h-14 md:h-16 px-8 xl:w-45 bg-text-heading rounded-md  font-body font-semibold text-[15px] md:text-mini-lg text-primary hover:bg-black transition-colors shrink-0 cursor-pointer"
             >
               Find food
             </button>
@@ -157,6 +157,7 @@ export default function HeroSection() {
             <Image
               src={HeroImg}
               fill
+              sizes="( max-width: 640px ) 100vw, ( max-width: 1024px ) 50vw, 33vw"
               alt="Delicious burger"
               className="object-cover scale-105"
               priority

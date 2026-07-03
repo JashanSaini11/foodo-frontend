@@ -94,6 +94,22 @@
   --container-content: 1680px;
 }
 
+/* In globals.css */
+@keyframes foodo-marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+
 /* ── shadcn theme passthrough ────────────────────────────────
    Maps shadcn's internal tokens to CSS vars it sets in :root.
    NOTE: --color-primary is intentionally NOT mapped here —
@@ -237,8 +253,8 @@
 
 html,
 body {
-  background: var(--color-bg-page);   /* #fff9e5 cream — Foodo brand */
-  color: var(--color-text-body);      /* #555555 */
+  background: var(--color-bg-page); /* #fff9e5 cream — Foodo brand */
+  color: var(--color-text-body); /* #555555 */
   font-family: var(--font-body);
 }
 

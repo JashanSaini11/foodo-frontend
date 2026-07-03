@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useCallback } from "react";
 import useAuthStore from "@/store/authStore";
-import { ChevronDown, PinIcon } from "@/assets/icons/index";
+import { ChevronDown, LocationIcon } from "@/assets/icons/index";
 import useLocationStore from "@/store/locationStore";
 
 // ─── Location Button ──────────────────────────────────────────
@@ -46,7 +46,7 @@ function LocationButton({ scrolled, onClose }) {
         className="flex items-center gap-2 hover:opacity-80 transition-opacity"
         aria-label={`Delivering to ${city}. Click to change location`}
       >
-        <PinIcon color="var(--color-primary)" size={18} />
+        <LocationIcon size={16} fill="none" />
         <div className="flex flex-col items-start leading-none gap-0.5">
           {!scrolled && (
             <span className="font-body text-mini-xs text-text-muted uppercase tracking-wide hidden sm:block">
@@ -68,7 +68,7 @@ function LocationButton({ scrolled, onClose }) {
       className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-dashed border-primary bg-primary/10 hover:bg-primary/20 transition-colors"
       aria-label="Set your delivery location"
     >
-      <PinIcon color="var(--color-primary)" size={16} />
+      <LocationIcon size={16} fill="none" />
       <span className="font-body font-semibold text-mini-md text-text-heading whitespace-nowrap">
         Set location
       </span>
