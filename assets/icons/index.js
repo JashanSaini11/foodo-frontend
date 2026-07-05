@@ -84,6 +84,65 @@ function LocationIcon({ size = 16, fill = "#555", stroke = "#412402" }) {
     )
 }
 
+function ArrowRight({ size = 14 }) {
+    return (
+        <svg
+            width={size} height={size} viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" strokeWidth="2.5"
+            strokeLinecap="round" strokeLinejoin="round"
+            aria-hidden="true"
+        >
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+        </svg>
+    );
+}
+function GoogleIcon({ width = 18, height = 18 }) {
+    return (
+        <svg width={width} height={height} viewBox="0 0 48 48">
+            <path
+                fill="#FFC107"
+                d="M43.6 20.5H42V20.5H24v7h11.3C33.7 31.6 29.3 35 24 35c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8.1 3.1l5.4-5.4C34.5 5.5 29.5 3.5 24 3.5 12.7 3.5 3.5 12.7 3.5 24S12.7 44.5 24 44.5 44.5 35.3 44.5 24c0-1.2-.1-2.4-.4-3.5z"
+            />
+            <path
+                fill="#FF3D00"
+                d="M6.3 14.7l5.8 4.3C13.8 15.2 18.6 12 24 12c3.1 0 5.9 1.2 8.1 3.1l5.4-5.4C34.5 6.5 29.5 4.5 24 4.5c-7.7 0-14.4 4.4-17.7 10.2z"
+            />
+            <path
+                fill="#4CAF50"
+                d="M24 44.5c5.4 0 10.3-1.9 14-5.2l-6.5-5.3C29.6 35.6 26.9 36.5 24 36.5c-5.3 0-9.7-3.4-11.3-8.1l-6.6 5.1C9.5 39.9 16.2 44.5 24 44.5z"
+            />
+            <path
+                fill="#1976D2"
+                d="M43.6 20.5H42V20.5H24v7h11.3c-.8 2.3-2.3 4.3-4.2 5.6l6.5 5.3C41.4 35.4 44.5 30.3 44.5 24c0-1.2-.1-2.4-.9-3.5z"
+            />
+        </svg>
+    );
+}
+
+function HamburgerIcon({ open }) {
+    return (
+        <svg
+            width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="var(--color-text-heading)" strokeWidth="2"
+            strokeLinecap="round" strokeLinejoin="round"
+            aria-hidden="true"
+        >
+            {open ? (
+                <>
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </>
+            ) : (
+                <>
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                </>
+            )}
+        </svg>
+    );
+}
 
 
-export { ChevronDown, FoodoLogo, Star, ClockIcon, LocationIcon };
+export { ChevronDown, FoodoLogo, Star, ClockIcon, LocationIcon, ArrowRight, GoogleIcon, HamburgerIcon };

@@ -1,7 +1,8 @@
 import AuthModal from '@/components/auth/AuthModal';
 import React from 'react'
 import HeroSection from '@/components/home/HeroSection';
-import BrandStrip from '@/components/home/BrandStrip';
+import BrandStrip from '@/components/home/BrandSection';
+import FeatureCards from '@/components/home/PartnerSection';
 
 function HomePage() {
     return (
@@ -11,6 +12,7 @@ function HomePage() {
             {/* Sections */}
             <HeroSection />
             <BrandStrip />
+            <FeatureCards />
         </main>
     )
 }
