@@ -1,6 +1,6 @@
 import { Baloo_Bhai_2, Manrope } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "@/components/ui/sonner";
+import { Toaster } from "@/components/ui/common/sonner";
 
 const balooBhai = Baloo_Bhai_2({
   subsets: ["latin"],

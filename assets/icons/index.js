@@ -1,3 +1,6 @@
+"use client"
+import { useRouter } from "next/navigation";
+
 // ─── Icons ────────────────────────────────────────────────────
 function ChevronDown({ size = 14 }) {
     return (
@@ -144,5 +147,58 @@ function HamburgerIcon({ open }) {
     );
 }
 
+function PlusIcon() {
+    return (
+        <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+        >
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+        </svg>
+    );
+}
 
-export { ChevronDown, FoodoLogo, Star, ClockIcon, LocationIcon, ArrowRight, GoogleIcon, HamburgerIcon };
+
+function CartButton({ scrolled }) {
+    const router = useRouter();
+    const iconSize = scrolled ? 18 : 22;
+
+    return (
+        <button
+            onClick={() => router.push("/cart")}
+            aria-label="View cart"
+            className={`
+        relative flex items-center justify-center rounded-full
+        hover:bg-black/5 transition-all duration-300
+        ${scrolled ? "w-8 h-8" : "w-11 h-11"}
+      `}
+        >
+            <svg
+                width={iconSize}
+                height={iconSize}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--color-text-heading)"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+            >
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <path d="M16 10a4 4 0 01-8 0" />
+            </svg>
+        </button>
+    );
+}
+
+
+export { ChevronDown, FoodoLogo, Star, ClockIcon, LocationIcon, ArrowRight, GoogleIcon, HamburgerIcon, PlusIcon, CartButton };

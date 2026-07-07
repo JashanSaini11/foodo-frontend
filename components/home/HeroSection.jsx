@@ -5,12 +5,21 @@ import { useRouter } from "next/navigation";
 import { Star, ClockIcon, LocationIcon } from "@/assets/icons/index";
 import HeroImg from "@/assets/images/HeroImg.png";
 import Image from "next/image";
+import useAuthStore from "@/store/authStore";
+import useUIStore from "@/store/uiStore";
 
 export default function HeroSection() {
   const router = useRouter();
   const [address, setAddress] = useState("");
+  const { isAuthenticated } = useAuthStore();
+  const { openAuthModal } = useUIStore();
 
   const handleFindFood = () => {
+    if (!isAuthenticated) {
+      openAuthModal();
+      return;
+    }
+
     router.push("/restaurants");
   };
 
