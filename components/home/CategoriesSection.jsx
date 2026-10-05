@@ -25,8 +25,8 @@ function CategoryItem({ category, onClick }) {
           transition-transform duration-200
           shadow-card cursor-pointer
           w-[80px] h-[80px]
-          sm:w-[120px] sm:h-[120px]
-          lg:w-[200px] lg:h-[200px]
+          sm:w-2xl sm:h-2xl sm:text-[48px]
+          lg:w-50 lg:h-50 lg:text-[80px]
         "
       >
         <Image
@@ -42,8 +42,8 @@ function CategoryItem({ category, onClick }) {
       <span
         className="
           font-body font-semibold text-text-heading text-center
-          text-[12px] sm:text-[16px] lg:text-[24px]
-          max-w-[80px] sm:max-w-[120px] lg:max-w-none
+          text-mini-sm sm:text-[16px] lg:text-[24px]
+          max-w-[80px] sm:max-w-2xl lg:max-w-none
           leading-tight
         "
       >
@@ -82,15 +82,15 @@ export default function CategoriesSection() {
   return (
     <section
       aria-labelledby="categories-heading"
-      className="bg-bg-page py-10 sm:py-12 lg:py-[47px] px-4 sm:px-6 lg:px-[105px]"
+      className="bg-bg-page py-10 sm:py-12 lg:py-11 px-4 sm:px-6 lg:px-26.25"
     >
-      <div className="max-w-[1920px] mx-auto flex flex-col gap-6 sm:gap-8 lg:gap-[59px]">
+      <div className="max-w-480 mx-auto flex flex-col gap-6 sm:gap-8 lg:gap-14.75">
         <div className="flex items-center justify-between">
           <h2
             id="categories-heading"
             className="
               font-display text-primary leading-tight
-              text-[36px] sm:text-[48px] lg:text-[60px] lg:leading-[95px]
+              text-[36px] sm:text-[48px] lg:text-[60px] lg:leading-23.75
             "
           >
             Popular Categories

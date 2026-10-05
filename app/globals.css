@@ -110,6 +110,14 @@
   }
 }
 
+.brand-marquee {
+  animation-play-state: running;
+}
+
+.brand-marquee:hover {
+  animation-play-state: paused;
+}
+
 /* ── shadcn theme passthrough ────────────────────────────────
    Maps shadcn's internal tokens to CSS vars it sets in :root.
    NOTE: --color-primary is intentionally NOT mapped here —

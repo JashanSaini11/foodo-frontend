@@ -32,6 +32,8 @@ function BrandItem({ brand, ariaHidden }) {
               alt={brand.name}
               width={96}
               height={96}
+              loading="lazy"
+              decoding="async"
               className="h-full w-auto object-contain block"
               onError={() => setImgError(true)}
             />

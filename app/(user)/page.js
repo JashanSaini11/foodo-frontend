@@ -4,6 +4,7 @@ import HeroSection from '@/components/home/HeroSection';
 import BrandStrip from '@/components/home/BrandSection';
 import FeatureCards from '@/components/home/PartnerSection';
 import CategoriesSection from '@/components/home/CategoriesSection';
+import FQASection from "@/components/home/FQASection";
 
 function HomePage() {
     return (
@@ -15,6 +16,7 @@ function HomePage() {
             <BrandStrip />
             <FeatureCards />
             <CategoriesSection />
+            <FQASection/>
         </main>
     )
 }

@@ -1,7 +1,3 @@
-"use client";
-
-import { useState } from "react";      
-
 const faqs = [
   {
     q: "How do I place an order?",
@@ -30,47 +26,75 @@ const faqs = [
 ];
 
 function FAQItem({ q, a }) {
-  const [open, setOpen] = useState(false);
-
   return (
-    <div className="border-b border-border-light">
-      <button
-        className="w-full flex items-center justify-between py-6 text-left"
-        onClick={() => setOpen((o) => !o)}
+    <details className="border-b border-border-light group">
+      <summary
+        className="
+          w-full flex items-center justify-between
+          py-4 sm:py-5 lg:py-6
+          text-left cursor-pointer list-none
+          gap-4
+        "
       >
-        <span className="font-body font-semibold text-[20px] text-text-heading">
+        <span
+          className="
+          font-body font-semibold text-text-heading
+          text-[15px] sm:text-[17px] lg:text-[20px]
+          leading-snug
+        "
+        >
           {q}
         </span>
         <svg
-          width="24"
-          height="24"
+          width="20"
+          height="20"
           viewBox="0 0 24 24"
           fill="none"
           stroke="#888"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className={`shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
+          className="shrink-0 transition-transform duration-200 group-open:rotate-180"
+          aria-hidden="true"
         >
           <polyline points="6 9 12 15 18 9" />
         </svg>
-      </button>
-      {open && (
-        <p className="font-body text-[18px] text-text-body pb-6 leading-relaxed">
-          {a}
-        </p>
-      )}
-    </div>
+      </summary>
+      <p
+        className="
+        font-body text-text-body leading-relaxed
+        text-[14px] sm:text-[16px] lg:text-[18px]
+        pb-4 sm:pb-5 lg:pb-6
+      "
+      >
+        {a}
+      </p>
+    </details>
   );
 }
 
+// ─── FAQ SECTION ──────────────────────────────────────────────
 export default function FAQSection() {
   return (
-    <section className="bg-bg-page py-[47px] px-[105px]">
-      <div className="max-w-[1920px] mx-auto flex flex-col gap-[59px] items-center">
-        <h2 className="font-display text-[60px] leading-[95px] text-primary whitespace-nowrap">
+    <section
+      aria-labelledby="faq-heading"
+      className="bg-bg-page py-10 sm:py-12 lg:py-[47px] px-4 sm:px-6 lg:px-[105px]"
+    >
+      <div className="max-w-[1920px] mx-auto flex flex-col gap-8 sm:gap-10 lg:gap-[59px] items-center">
+        {/* Heading */}
+        <h2
+          id="faq-heading"
+          className="
+            font-display text-primary text-center
+            text-[32px] leading-tight
+            sm:text-[44px] sm:leading-snug
+            lg:text-[60px] lg:leading-[95px]
+          "
+        >
           Frequently Asked Questions
         </h2>
+
+        {/* FAQ list */}
         <div className="w-full max-w-[880px]">
           {faqs.map((faq) => (
             <FAQItem key={faq.q} q={faq.q} a={faq.a} />

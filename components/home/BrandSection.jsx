@@ -1,5 +1,3 @@
-"use client";
-
 import { brands } from "@/data/brands";
 import BrandItem from "@/components/ui/BrandItem";
 
@@ -30,14 +28,8 @@ export default function BrandSection() {
           }}
         >
           <div
-            className="flex items-center gap-8 sm:gap-12 lg:gap-16 w-max"
+            className="brand-marquee flex items-center gap-8 sm:gap-12 lg:gap-16 w-max"
             style={{ animation: "foodo-marquee 30s linear infinite" }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.animationPlayState = "paused")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.animationPlayState = "running")
-            }
           >
             {marqueeItems.map((brand, index) => (
               <BrandItem
